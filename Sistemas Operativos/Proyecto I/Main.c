@@ -1,3 +1,5 @@
+//gcc Main.c -Wall -Wextra -o main -lpthread
+
 #include <stdio.h>
 #include <pthread.h>
 
