@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Lista de Peliculas</title>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" th:href="@{/style.css}"/>
+</head>
+<body>
+ 
+    <div class="navbar">
+        <a th:href="@{/}">Inicio</a>
+        <a th:href="@{/movies/}">Peliculas</a>
+        <a th:href="@{/categories/}">Categorias</a>
+    </div>
+ 
+    <div class="contenedor">
+        <h1>Lista de Peliculas</h1>
+        <br/>
+        <a th:href="@{add}" class="btn btn-primary">Agregar Pelicula</a>
+        <br/><br/>
+        <table border="1">
+            <tr>
+                <th>Codigo</th>
+                <th>Titulo</th>
+                <th>Anio</th>
+                <th>Categoria</th>
+                <th>Acciones</th>
+            </tr>
+            <tr th:each="mov : ${movies}">
+                <td th:text="${mov.id}"></td>
+                <td th:text="${mov.title}"></td>
+                <td th:text="${mov.releaseYear}"></td>
+                <td>
+                    <span th:if="${mov.category != null}" th:text="${mov.category.name}"></span>
+                    <span th:if="${mov.category == null}">Sin categoria</span>
+                </td>
+                <td>
+                    <a th:href="@{edit(id=${mov.id})}" class="btn btn-success">Editar</a>
+                    &nbsp;
+                    <a th:href="@{delete(id=${mov.id})}" class="btn btn-danger"
+                       onclick="return confirm('Desea eliminar esta pelicula?')">Eliminar</a>
+                </td>
+            </tr>
+        </table>
+    </div>
+ 
+</body>
+</html>
+ 

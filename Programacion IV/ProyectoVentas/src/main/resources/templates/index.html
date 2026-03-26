@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Catalogo de Peliculas</title>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" th:href="@{/style.css}"/>
+</head>
+<body>
+
+    <div class="navbar">
+        <a th:href="@{/}">Inicio</a>
+        <a th:href="@{/movies/}">Peliculas</a>
+        <a th:href="@{/categories/}">Categorias</a>
+    </div>
+
+    <div class="contenedor">
+        <img th:src="@{/images/cine.png}" class="logo" alt="logo"/>
+        <h1>Bienvenido al Catalogo de Peliculas</h1>
+        <br/>
+        <p style="text-align:center;">Seleccione una opcion:</p>
+        <br/>
+        <div style="text-align:center;">
+            <a th:href="@{/movies/}" class="btn btn-primary">Ver Peliculas</a>
+            &nbsp;&nbsp;
+            <a th:href="@{/categories/}" class="btn btn-primary">Ver Categorias</a>
+        </div>
+    </div>
+
+</body>
+</html>

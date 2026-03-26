@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Categor&iacute;as - CineCat&aacute;logo</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" th:href="@{/style.css}"/>
+</head>
+<body>
+
+    <nav class="navbar">
+        <a href="/" class="navbar-brand">Cine<span>Cat</span></a>
+        <ul class="navbar-nav">
+            <li><a th:href="@{/}">Inicio</a></li>
+            <li><a th:href="@{/movies/}">Pel&iacute;culas</a></li>
+            <li><a th:href="@{/categories/}" class="active">Categor&iacute;as</a></li>
+        </ul>
+    </nav>
+
+    <div class="main-container">
+        <div class="page-header">
+            <div>
+                <h1>🏷️ <span>Categor&iacute;as</span></h1>
+                <p class="page-subtitle">Organiza las pel&iacute;culas por g&eacute;nero</p>
+            </div>
+            <a th:href="@{add}" class="btn btn-primary">+ Agregar</a>
+        </div>
+
+        <div class="table-wrapper">
+            <table class="data-table">
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Nombre</th>
+                        <th>Descripci&oacute;n</th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr th:if="${#lists.isEmpty(categories)}">
+                        <td colspan="4">
+                            <div class="empty-state">
+                                <div class="empty-state-icon">🏷️</div>
+                                <h3>No hay categor&iacute;as</h3>
+                                <p>Agrega tu primera categor&iacute;a para organizar las pel&iacute;culas.</p>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr th:each="cat : ${categories}">
+                        <td class="id-cell" th:text="${cat.id}"></td>
+                        <td><strong th:text="${cat.name}"></strong></td>
+                        <td th:text="${cat.description}" style="color: var(--muted); font-size: 0.875rem;"></td>
+                        <td class="actions-cell">
+                            <a th:href="@{edit(id=${cat.id})}" class="btn btn-edit">Editar</a>
+                            <a th:href="@{delete(id=${cat.id})}" class="btn btn-danger"
+                               onclick="return confirm('¿Eliminar esta categoría? Las películas quedarán sin categoría.')">Eliminar</a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+</body>
+</html>

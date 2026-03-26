@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Pel&iacute;culas - CineCat&aacute;logo</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" th:href="@{/style.css}"/>
+</head>
+<body>
+
+    <nav class="navbar">
+        <a href="/" class="navbar-brand">Cine<span>Cat</span></a>
+        <ul class="navbar-nav">
+            <li><a th:href="@{/}">Inicio</a></li>
+            <li><a th:href="@{/movies/}" class="active">Pel&iacute;culas</a></li>
+            <li><a th:href="@{/categories/}">Categor&iacute;as</a></li>
+        </ul>
+    </nav>
+
+    <div class="main-container">
+        <div class="page-header">
+            <div>
+                <h1>🎬 <span>Pel&iacute;culas</span></h1>
+                <p class="page-subtitle">Administra tu cat&aacute;logo de pel&iacute;culas</p>
+            </div>
+            <a th:href="@{add}" class="btn btn-primary">+ Agregar</a>
+        </div>
+
+        <div class="table-wrapper">
+            <table class="data-table">
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>T&iacute;tulo</th>
+                        <th>A&ntilde;o</th>
+                        <th>Categor&iacute;a</th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr th:if="${#lists.isEmpty(movies)}">
+                        <td colspan="5">
+                            <div class="empty-state">
+                                <div class="empty-state-icon">🎞️</div>
+                                <h3>No hay pel&iacute;culas</h3>
+                                <p>Agrega tu primera pel&iacute;cula para comenzar.</p>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr th:each="mov : ${movies}">
+                        <td class="id-cell" th:text="${mov.id}"></td>
+                        <td><strong th:text="${mov.title}"></strong></td>
+                        <td th:text="${mov.releaseYear}"></td>
+                        <td>
+                            <span th:if="${mov.category != null}" class="badge badge-category" th:text="${mov.category.name}"></span>
+                            <span th:if="${mov.category == null}" class="badge badge-none">Sin categor&iacute;a</span>
+                        </td>
+                        <td class="actions-cell">
+                            <a th:href="@{edit(id=${mov.id})}" class="btn btn-edit">Editar</a>
+                            <a th:href="@{delete(id=${mov.id})}" class="btn btn-danger"
+                               onclick="return confirm('¿Eliminar esta película?')">Eliminar</a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+</body>
+</html>

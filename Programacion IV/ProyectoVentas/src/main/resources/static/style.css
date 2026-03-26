@@ -1,0 +1,113 @@
+/* Estilos del Catalogo de Peliculas */
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+    margin: 20px;
+}
+
+h1 {
+    color: #333333;
+    text-align: center;
+}
+
+/* Navbar simple */
+.navbar {
+    background-color: #336699;
+    padding: 10px;
+    margin-bottom: 20px;
+}
+
+.navbar a {
+    color: white;
+    text-decoration: none;
+    margin-right: 15px;
+    font-size: 16px;
+}
+
+.navbar a:hover {
+    text-decoration: underline;
+}
+
+/* Tabla */
+table {
+    border-collapse: collapse;
+    width: 80%;
+    margin: 0 auto;
+    background-color: white;
+}
+
+table th {
+    background-color: #336699;
+    color: white;
+    padding: 8px;
+    text-align: left;
+}
+
+table td {
+    padding: 8px;
+    border: 1px solid #cccccc;
+}
+
+table tr:hover {
+    background-color: #d0e4f7;
+}
+
+/* Botones */
+.btn {
+    padding: 6px 12px;
+    text-decoration: none;
+    border-radius: 4px;
+    font-size: 14px;
+}
+
+.btn-primary {
+    background-color: #336699;
+    color: white;
+    border: none;
+    cursor: pointer;
+    padding: 6px 12px;
+    border-radius: 4px;
+    font-size: 14px;
+}
+
+.btn-danger {
+    background-color: #cc3300;
+    color: white;
+}
+
+.btn-success {
+    background-color: #336600;
+    color: white;
+}
+
+/* Formulario */
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.form-group input, .form-group select {
+    padding: 6px;
+    width: 300px;
+    border: 1px solid #aaaaaa;
+    border-radius: 3px;
+}
+
+/* Contenedor centrado */
+.contenedor {
+    width: 80%;
+    margin: 0 auto;
+}
+
+/* Imagen del logo */
+.logo {
+    display: block;
+    margin: 0 auto 15px auto;
+    width: 80px;
+}

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>CineCat&aacute;logo - Inicio</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" th:href="@{/style.css}"/>
+</head>
+<body>
+
+    <nav class="navbar">
+        <a href="/" class="navbar-brand">Cine<span>Cat</span></a>
+        <ul class="navbar-nav">
+            <li><a th:href="@{/}" class="active">Inicio</a></li>
+            <li><a th:href="@{/movies/}">Pel&iacute;culas</a></li>
+            <li><a th:href="@{/categories/}">Categor&iacute;as</a></li>
+        </ul>
+    </nav>
+
+    <div class="hero">
+        <img th:src="@{/images/cine.png}" src="/images/cine.png" alt="CineCatálogo" class="hero-logo"/>
+        <h1>CineCat&aacute;logo</h1>
+        <p>Administra tu biblioteca de pel&iacute;culas f&aacute;cilmente.</p>
+
+        <div class="cards-grid">
+            <a th:href="@{/movies/}" class="admin-card">
+                <div class="admin-card-icon">🎬</div>
+                <h2>Pel&iacute;culas</h2>
+                <p>Gestiona el cat&aacute;logo completo: agrega, edita y elimina pel&iacute;culas.</p>
+            </a>
+            <a th:href="@{/categories/}" class="admin-card">
+                <div class="admin-card-icon">🏷️</div>
+                <h2>Categor&iacute;as</h2>
+                <p>Organiza por género: Acción, Drama, Comedia, Terror y más.</p>
+            </a>
+        </div>
+    </div>
+
+</body>
+</html>
